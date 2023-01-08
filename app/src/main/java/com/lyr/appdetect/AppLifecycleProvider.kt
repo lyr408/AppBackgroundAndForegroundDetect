@@ -59,15 +59,19 @@ class AppLifecycleProvider : ContentProvider() {
     }
 
     override fun call(method: String, arg: String?, extras: Bundle?): Bundle? {
-        if (method == OPERATE_START) {
-            ++activityCount
-        } else if (method == OPERATE_STOP) {
-            --activityCount
-        } else if (method == OPERATE_QUERY) {
-            extras?.putBoolean(
-                IS_FOREGROUND,
-                activityCount > BACKGROUND
-            )
+        when (method) {
+            OPERATE_START -> {
+                ++activityCount
+            }
+            OPERATE_STOP -> {
+                --activityCount
+            }
+            OPERATE_QUERY -> {
+                extras?.putBoolean(
+                    IS_FOREGROUND,
+                    activityCount > BACKGROUND
+                )
+            }
         }
         return extras
     }
@@ -76,7 +80,7 @@ class AppLifecycleProvider : ContentProvider() {
         const val FOREGROUND = 1
         const val BACKGROUND = 0
         private const val TAG = "AppListenerProvider"
-        val URI = Uri.parse("content://com.lyr.app.lifecycle")
+        val URI: Uri = Uri.parse("content://com.lyr.app.lifecycle")
         const val KEY_ACTIVITY_COUNT = "KEY_ACTIVITY_COUNT"
         const val OPERATE_START = "operate_start"
         const val OPERATE_STOP = "operate_stop"

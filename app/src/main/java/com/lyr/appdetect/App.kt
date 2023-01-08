@@ -1,7 +1,6 @@
 package com.lyr.appdetect
 
 import android.app.Application
-import com.lyr.appdetect.AppActivityLifecycleCallbacks
 
 /**
  * @author Yuanrui Liang

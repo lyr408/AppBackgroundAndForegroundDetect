@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.lyr.appdetect.NewProcessActivity
 
 /**
  * @author Yuanrui Liang

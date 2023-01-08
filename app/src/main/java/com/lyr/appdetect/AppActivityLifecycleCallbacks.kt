@@ -14,8 +14,8 @@ class AppActivityLifecycleCallbacks(private val mContext: Context) : ActivityLif
     override fun onActivityCreated(activity: Activity, bundle: Bundle?) {}
     override fun onActivityStarted(activity: Activity) {
         mContext.contentResolver.call(
-            AppLifecycleProvider.Companion.URI,
-            AppLifecycleProvider.Companion.OPERATE_START,
+            AppLifecycleProvider.URI,
+            AppLifecycleProvider.OPERATE_START,
             null,
             null
         )
@@ -25,8 +25,8 @@ class AppActivityLifecycleCallbacks(private val mContext: Context) : ActivityLif
     override fun onActivityPaused(activity: Activity) {}
     override fun onActivityStopped(activity: Activity) {
         mContext.contentResolver.call(
-            AppLifecycleProvider.Companion.URI,
-            AppLifecycleProvider.Companion.OPERATE_STOP,
+            AppLifecycleProvider.URI,
+            AppLifecycleProvider.OPERATE_STOP,
             null,
             null
         )
