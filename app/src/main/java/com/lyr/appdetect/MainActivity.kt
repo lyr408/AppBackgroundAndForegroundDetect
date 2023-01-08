@@ -23,14 +23,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        var bundle = Bundle()
+        var bundle : Bundle? = Bundle()
         bundle = contentResolver.call(
             AppLifecycleProvider.URI,
             AppLifecycleProvider.OPERATE_QUERY,
             "MainActivity",
             bundle
-        )!!
-        Log.d(TAG, "onStop: " + bundle.getBoolean(AppLifecycleProvider.Companion.IS_FOREGROUND))
+        )
+        Log.d(TAG, "onStop: " + bundle?.getBoolean(AppLifecycleProvider.IS_FOREGROUND))
     }
 
     companion object {

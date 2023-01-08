@@ -13,14 +13,14 @@ class NewProcessActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_process)
-        var bundle = Bundle()
+        var bundle : Bundle? = Bundle()
         bundle = contentResolver.call(
             AppLifecycleProvider.URI,
             AppLifecycleProvider.OPERATE_QUERY,
             "NewProcessActivity",
             bundle
-        )!!
-        Log.d(TAG, "onCreate: " + bundle.getBoolean(AppLifecycleProvider.Companion.IS_FOREGROUND))
+        )
+        Log.d(TAG, "onCreate: " + bundle?.getBoolean(AppLifecycleProvider.IS_FOREGROUND))
     }
 
     companion object {
